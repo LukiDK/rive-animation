@@ -24,14 +24,16 @@ playBtn.addEventListener("click", () => {
 let feedButton = document.getElementById("feed-btn");
 
 const feed = () => {
-  if (hp.value < 90) {
-    hp.value = hp.value + 10;
-  } else {
-    hp.value = 100;
-  }
+    if (hp.value < 90) {
+        hp.value = hp.value + 10;
+    } else {
+        hp.value = 100;
+    }
+
+    ioSocket.emit("feed", { hp: hp.value });
 };
 
 feedButton.addEventListener("click", () => {
-  feed();
-  console.log(hp.value);
+    feed();
+    console.log(hp.value);
 });
